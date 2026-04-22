@@ -9,14 +9,14 @@
         body { font-family: "Helvetica Neue", Arial, "Hiragino Sans", sans-serif; margin: 0; padding: 0; color: #333; background-color: var(--bg); line-height: 1.6; }
         
         /* ヒーローエリア */
-        .hero { background: linear-gradient(135deg, #005bac 0%, #003a70 100%); color: white; padding: 60px 20px 80px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        .hero { background: linear-gradient(135deg, #005bac 0%, #003a70 100%); color: white; padding: 60px 20px; text-align: center; }
         .hero h1 { font-size: 2.5rem; margin: 0; letter-spacing: 2px; }
         .hero p { font-size: 1rem; opacity: 0.9; margin-top: 10px; }
         .badge { background: var(--accent); color: white; padding: 4px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
 
         /* コンテンツ容器 */
-        .container { max-width: 600px; margin: -50px auto 100px; padding: 0 15px; }
-        .card { background: white; border-radius: 15px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .container { max-width: 600px; margin: 20px auto 100px; padding: 0 15px; }
+        .card { background: white; border-radius: 15px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden; }
 
         /* 改正法アラート */
         .alert-card { border: 2px solid var(--yellow); background: #fffdf2; }
@@ -25,17 +25,15 @@
 
         /* サービス特徴 */
         h3 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 0; font-size: 1.2rem; }
-        .service-item { margin-bottom: 25px; }
+        .service-item { margin-bottom: 30px; }
         .service-tag { font-size: 0.8rem; font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+        
+        /* 画像用プレースホルダー（将来的に写真を入れる場所） */
+        .img-placeholder { background: #eee; width: 100%; height: 180px; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8rem; }
 
-        /* 価格・トライアル */
-        .trial-box { background: var(--primary); color: white; text-align: center; padding: 20px; border-radius: 10px; margin-top: 30px; }
-        .trial-box h4 { margin: 0; font-size: 1.3rem; color: var(--yellow); }
-
-        /* フローティングLINEボタン（スマホ最適化） */
+        /* フローティングLINEボタン */
         .line-sticky { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 100; }
-        .line-btn { background: #06c755; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 15px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 15px rgba(6,199,85,0.4); transition: transform 0.2s; }
-        .line-btn:active { transform: scale(0.95); }
+        .line-btn { background: #06c755; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 15px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 15px rgba(6,199,85,0.4); }
         .line-btn img { width: 30px; margin-right: 10px; }
 
         footer { text-align: center; padding: 40px 20px 120px; font-size: 0.8rem; color: #888; }
@@ -52,25 +50,26 @@
     <div class="container">
         <div class="card alert-card">
             <h2>車両1台から義務化対象です</h2>
-            <p style="font-size: 0.9rem;">令和7年4月から、貨物軽自動車運送事業者の安全対策が強化。点呼や業務記録の保存（1年間）が必須となります。</p>
+            <p style="font-size: 0.9rem;">令和7年4月から安全対策が強化され、点呼や業務記録の保存（1年間）が必須となります。</p>
             <ul style="padding-left: 20px; font-size: 0.9rem; font-weight: bold;">
                 <li>点呼の実施と記録保存</li>
                 <li>業務記録（日時・地点）の保存</li>
                 <li>事故記録の3年間保存</li>
             </ul>
-            <p style="font-size: 0.8rem; text-align: right;">※スマホでの記録保存も認められています</p>
         </div>
 
         <div class="card">
             <div class="service-item">
                 <span class="service-tag">SERVICE 01 / 法令対応DX</span>
                 <h3>スマホ1台で日報・点呼を自動化</h3>
-                <p>煩わしい書類作成から解放。行政処分リスクをゼロにするエビデンスを、日々の業務の中で自然に蓄積します。</p>
+                <div class="img-placeholder">ここにアプリ操作画面の写真を挿入予定</div>
+                <p>煩わしい書類作成から解放。行政処分リスクを回避するエビデンスを、日々の業務の中で確実に蓄積します。</p>
             </div>
 
             <div class="service-item">
                 <span class="service-tag">SERVICE 02 / 福利厚生</span>
                 <h3>ポスタルくらぶ連携の充実保証</h3>
+                <div class="img-placeholder">ここに福利厚生のイメージ画像を挿入予定</div>
                 <p>全国175万件の優待に加え、入院・葬儀の見舞金制度も。ドライバー本人だけでなくご家族の安心も支えます。</p>
             </div>
 
@@ -79,11 +78,6 @@
                 <h3>Calq（カルク）確定申告サポート</h3>
                 <p>領収書の整理や申告はプロにお任せ。インボイス制度への対応も、提携税理士がバックアップします。</p>
             </div>
-        </div>
-
-        <div class="trial-box">
-            <h4>60日間 無料トライアル受付中</h4>
-            <p>まずは実際の操作感をお試しください</p>
         </div>
 
         <footer>
