@@ -3,42 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ドラサク｜運送会社の現場から生まれたDX支援</title>
+    <title>ドラサク｜運送会社の現場から生まれた、実力派DX支援ツール</title>
     <style>
-        :root { --primary: #005bac; --accent: #ff4757; --bg: #f8fbff; }
-        body { font-family: "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: var(--bg); line-height: 1.6; }
-        .hero { background: #005bac; color: white; padding: 40px 20px; text-align: center; }
-        .container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
-        .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        h1 { font-size: 1.8rem; margin: 0; }
-        h2 { color: var(--primary); font-size: 1.2rem; }
-        .footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #888; }
-        /* 外部画像を排除したシンプルなボタン */
-        .contact-btn { display: block; background: #06c755; color: white; text-align: center; padding: 15px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+        :root { --primary: #005bac; --accent: #ff4757; --yellow: #ffcc00; --bg: #f4f7f9; }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Sans", sans-serif; margin: 0; padding: 0; color: #333; background-color: var(--bg); line-height: 1.8; }
+        
+        .hero { background: linear-gradient(135deg, #005bac 0%, #003a70 100%); color: white; padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 2.2rem; margin: 0; letter-spacing: 2px; }
+        .hero p { font-size: 1rem; opacity: 0.9; margin-top: 10px; }
+        .badge { background: var(--accent); color: white; padding: 4px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
+
+        .container { max-width: 600px; margin: 20px auto 100px; padding: 0 15px; }
+        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+
+        /* 手作り感セクション */
+        .handmade-box { background: #fff9f0; border: 1px solid #ffe8cc; padding: 20px; border-radius: 12px; margin-bottom: 25px; font-size: 0.95rem; }
+        .handmade-box h2 { color: #d48806; font-size: 1.2rem; margin-top: 0; text-align: center; }
+
+        h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 12px; margin: 0 0 15px 0; font-size: 1.1rem; }
+        .feature-item { margin-bottom: 20px; }
+        .feature-item p { font-size: 0.9rem; color: #555; }
+
+        .cta-box { text-align: center; background: #eef2f6; padding: 25px; border-radius: 12px; }
+        
+        footer { text-align: center; padding: 40px 20px 100px; font-size: 0.85rem; color: #777; border-top: 1px solid #eee; }
+        .corp-link { color: var(--primary); text-decoration: underline; font-weight: bold; }
     </style>
 </head>
 <body>
-    <header class="hero">
+
+    <section class="hero">
+        <span class="badge">令和7年4月 改正法対応</span>
         <h1>ドラサク</h1>
-        <p>運送会社が作った、現場のための手作りシステム</p>
-    </header>
+        <p>「事務作業をゼロに。経営の防御力を最大に。」</p>
+    </section>
+
     <div class="container">
-        <div class="card">
-            <h2>私たちの想い</h2>
-            <p>私たちはシステム開発会社ではありません。日々の配送業務の中で「もっと事務を楽にしたい」と考え、自分たちで使いながら磨き上げてきたツールを、仲間の運送会社様にもお裾分けしたいと考えています。</p>
+        <div class="handmade-box">
+            <h2>運送会社が、自分たちのために作りました</h2>
+            <p>私たちはプロのIT企業ではありません。日々の配送業務の中で、煩雑な事務作業に悩み、自分たちの現場を楽にするために試行錯誤して生まれた「手作りのシステム」です。だからこそ、現場の使い勝手にはどこよりも自信があります。</p>
         </div>
+
         <div class="card">
-            <h2>提供する安心</h2>
-            <ul>
-                <li>令和7年4月の改正法に合わせた記録保存</li>
-                <li>日々の健康管理と点呼の効率化</li>
-                <li>ドライバーを守る充実の福利厚生</li>
-            </ul>
+            <div class="feature-item">
+                <h3>1. 法令対応DX（スマホ1台で完結）</h3>
+                <p>点呼、業務記録、事故記録。令和7年4月からの義務化項目をスマホで確実に蓄積。行政処分リスクから会社を守るエビデンスを自動で生成します。</p>
+            </div>
+            <div class="feature-item">
+                <h3>2. ドライバーを支える福利厚生</h3>
+                <p>ポスタルくらぶ連携。レジャー優待だけでなく、入院時のお見舞金制度など、小規模事業者では難しかった手厚いサポートをパッケージ化しました。</p>
+            </div>
+            <div class="feature-item">
+                <h3>3. 確定申告・会計サポート</h3>
+                <p>Calq（カルク）による会計支援。面倒な記帳や申告は税理士にお任せ。ドライバーが「走り」に集中できる環境を提供します。</p>
+            </div>
         </div>
-        <a href="#" class="contact-btn">詳細を問い合わせる（準備中）</a>
-        <footer class="footer">
-            株式会社ワールドフォースインターナショナル
+
+        <div class="cta-box">
+            <p><strong>現在、LINE公式アカウントにて先行案内準備中</strong></p>
+            <p style="font-size: 0.85rem; color: #666;">詳細な機能や導入プランについては、近日公開予定のLINEにてご案内いたします。今しばらくお待ちください。</p>
+        </div>
+
+        <footer>
+            <p>運営母体：<a href="https://www.wfi.co.jp" class="corp-link" target="_blank">株式会社ワールドフォースインターナショナル</a></p>
+            東京都文京区後楽2丁目20-16 後楽2丁目ビル5階
         </footer>
     </div>
+
 </body>
 </html>
