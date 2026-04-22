@@ -3,77 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ドラサク｜運送DXと福利厚生で、経営の防御力を最大化</title>
+    <title>ドラサク｜運送DX・福利厚生・確定申告をスマホ1台で</title>
     <style>
-        :root { --primary-color: #005bac; --accent-color: #ff4757; --bg-light: #f4f7f9; }
-        body { font-family: "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; background-color: var(--bg-light); }
-        .hero { background: linear-gradient(135deg, #005bac 0%, #003a70 100%); color: white; padding: 60px 20px; text-align: center; }
-        .hero h1 { font-size: 2.2rem; margin: 10px 0; }
-        .container { max-width: 800px; margin: -40px auto 40px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        h2 { color: var(--primary-color); font-size: 1.4rem; border-left: 5px solid var(--primary-color); padding-left: 15px; margin: 35px 0 15px; }
-        .alert-box { background: #fff5f6; padding: 20px; border-radius: 8px; border: 1px dashed var(--accent-color); margin-bottom: 20px; }
-        .check-list { list-style: none; padding: 0; }
-        .check-list li::before { content: "✅"; margin-right: 10px; }
-        .feature-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .card { background: #fff; border: 1px solid #e1e8ed; padding: 20px; border-radius: 10px; }
-        .card h3 { color: var(--primary-color); margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .badge { background: var(--accent-color); color: white; padding: 4px 12px; border-radius: 20px; font-weight: bold; }
-        .cta { text-align: center; padding: 30px; background: #eef2f6; border-radius: 12px; margin-top: 40px; }
-        .footer { text-align: center; padding: 30px; font-size: 0.8rem; color: #777; }
+        :root { --primary: #005bac; --accent: #ff4757; --yellow: #ffcc00; --bg: #f8fbff; }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Sans", sans-serif; margin: 0; padding: 0; color: #333; background-color: var(--bg); line-height: 1.6; }
+        
+        /* ヒーローエリア */
+        .hero { background: linear-gradient(135deg, #005bac 0%, #003a70 100%); color: white; padding: 60px 20px 80px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        .hero h1 { font-size: 2.5rem; margin: 0; letter-spacing: 2px; }
+        .hero p { font-size: 1rem; opacity: 0.9; margin-top: 10px; }
+        .badge { background: var(--accent); color: white; padding: 4px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
+
+        /* コンテンツ容器 */
+        .container { max-width: 600px; margin: -50px auto 100px; padding: 0 15px; }
+        .card { background: white; border-radius: 15px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+
+        /* 改正法アラート */
+        .alert-card { border: 2px solid var(--yellow); background: #fffdf2; }
+        .alert-card h2 { color: #856404; font-size: 1.2rem; margin-top: 0; display: flex; align-items: center; }
+        .alert-card h2::before { content: "⚠️"; margin-right: 8px; }
+
+        /* サービス特徴 */
+        h3 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 0; font-size: 1.2rem; }
+        .service-item { margin-bottom: 25px; }
+        .service-tag { font-size: 0.8rem; font-weight: bold; color: var(--primary); display: block; margin-bottom: 5px; }
+
+        /* 価格・トライアル */
+        .trial-box { background: var(--primary); color: white; text-align: center; padding: 20px; border-radius: 10px; margin-top: 30px; }
+        .trial-box h4 { margin: 0; font-size: 1.3rem; color: var(--yellow); }
+
+        /* フローティングLINEボタン（スマホ最適化） */
+        .line-sticky { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 100; }
+        .line-btn { background: #06c755; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 15px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 15px rgba(6,199,85,0.4); transition: transform 0.2s; }
+        .line-btn:active { transform: scale(0.95); }
+        .line-btn img { width: 30px; margin-right: 10px; }
+
+        footer { text-align: center; padding: 40px 20px 120px; font-size: 0.8rem; color: #888; }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <span class="badge">令和7年 改正法対応</span>
+        <span class="badge">2025年4月 改正法対応</span>
         <h1>ドラサク</h1>
-        <p>事務作業を、サクっと。経営を、サクっと。</p>
+        <p>「事務作業をゼロに、経営に安心を。」<br>運送業の未来を作るDXパートナー</p>
     </section>
 
     <div class="container">
-        <div class="alert-box">
-            <strong>⚠️ 車両1台から対象！令和7年4月 改正法対応</strong>
-            <p>貨物軽自動車運送事業者の安全対策が強化されます。これまでは「努力」だった記録の保存が義務化されます。</p>
-            <ul class="check-list">
-                <li>点呼の実施と1年間の記録保存</li>
-                <li>業務記録（日時・地点・距離）の1年間保存</li>
-                <li>事故記録の3年間保存と国土交通大臣への報告</li>
+        <div class="card alert-card">
+            <h2>車両1台から義務化対象です</h2>
+            <p style="font-size: 0.9rem;">令和7年4月から、貨物軽自動車運送事業者の安全対策が強化。点呼や業務記録の保存（1年間）が必須となります。</p>
+            <ul style="padding-left: 20px; font-size: 0.9rem; font-weight: bold;">
+                <li>点呼の実施と記録保存</li>
+                <li>業務記録（日時・地点）の保存</li>
+                <li>事故記録の3年間保存</li>
             </ul>
+            <p style="font-size: 0.8rem; text-align: right;">※スマホでの記録保存も認められています</p>
         </div>
 
-        <h2>ドラサクが提供する「3つの安心」</h2>
-        
-        <div class="feature-grid">
-            <div class="card">
-                <h3>1. スマホ1台でDX完了（法令対応）</h3>
-                <p>煩雑な「点呼・業務記録・事故記録」をスマホで自動生成。パソコンやスマートフォンでの実施・保存が認められています。行政処分リスクを回避するエビデンスを確実に蓄積します。</p>
+        <div class="card">
+            <div class="service-item">
+                <span class="service-tag">SERVICE 01 / 法令対応DX</span>
+                <h3>スマホ1台で日報・点呼を自動化</h3>
+                <p>煩わしい書類作成から解放。行政処分リスクをゼロにするエビデンスを、日々の業務の中で自然に蓄積します。</p>
             </div>
 
-            <div class="card">
-                <h3>2. 暮らしを支える福利厚生</h3>
-                <p><strong>ポスタルくらぶ Value Plus 連携</strong></p>
-                <p>全国175万種類の割引優待（宿泊・レジャー・映画等）に加え、万が一の「就業不能見舞金（3万円）」や「葬儀見舞金（10万円）」でドライバーの人生を支えます。ご家族も一緒に利用可能です。</p>
+            <div class="service-item">
+                <span class="service-tag">SERVICE 02 / 福利厚生</span>
+                <h3>ポスタルくらぶ連携の充実保証</h3>
+                <p>全国175万件の優待に加え、入院・葬儀の見舞金制度も。ドライバー本人だけでなくご家族の安心も支えます。</p>
             </div>
 
-            <div class="card">
-                <h3>3. 会計・確定申告サポート</h3>
-                <p><strong>Calq（カルク）によるバックアップ</strong></p>
-                <p>領収書の山から解放。税理士による確定申告サポートを提供し、ドライバーが「走り」に100%集中できる環境を作ります。インボイス制度への対応も安心です。</p>
+            <div class="service-item">
+                <span class="service-tag">SERVICE 03 / 会計支援</span>
+                <h3>Calq（カルク）確定申告サポート</h3>
+                <p>領収書の整理や申告はプロにお任せ。インボイス制度への対応も、提携税理士がバックアップします。</p>
             </div>
         </div>
 
-        <div class="cta">
-            <h3>「ドライバーを守ることが、経営安定への最短距離」</h3>
-            <p>詳細なプラン（スタンダード/プラス/プレミアム）や60日間無料トライアルのご案内は、準備中のLINE公式アカウントにて順次公開いたします。</p>
-            <p><strong>Webサイト正式公開まで今しばらくお待ちください。</strong></p>
+        <div class="trial-box">
+            <h4>60日間 無料トライアル受付中</h4>
+            <p>まずは実際の操作感をお試しください</p>
         </div>
+
+        <footer>
+            株式会社ワールドフォースインターナショナル<br>
+            東京都文京区後楽2丁目20-16 後楽2丁目ビル5階<br>
+            TEL: 03-3868-2581
+        </footer>
     </div>
 
-    <footer class="footer">
-        <p>運営：株式会社ワールドフォースインターナショナル<br>
-        〒112-0004 東京都文京区後楽2丁目20-16 後楽2丁目ビル5階<br>
-        TEL: 03-3868-2581</p>
-    </footer>
+    <div class="line-sticky">
+        <a href="#" class="line-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
+            LINEで無料相談・診断を始める
+        </a>
+    </div>
 
 </body>
 </html>
