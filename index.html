@@ -91,7 +91,7 @@
         <div class="card" style="text-align: center;">
             <p style="margin-top: 0;"><strong>詳細な機能案内はLINEから</strong></p>
             <p style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">24時間自動応答のAI窓口、または個別相談をご利用いただけます。まずは以下のボタンから友だち追加してください。</p>
-            <a href="https://lin.ee/5OPhAh8" class="line-cta">
+            <a href="https://lin.ee/5OPhAh8" id="line-button" class="line-cta">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE" class="line-img">
                 <span class="line-text">ドラサク 公式LINEで確認する</span>
             </a>
@@ -104,5 +104,28 @@
             東京都文京区後楽2丁目20-16 後楽2丁目ビル5階
         </footer>
     </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refCode = urlParams.get('ref');
+            
+            const lineButton = document.getElementById('line-button');
+            
+            if (refCode && lineButton) {
+                // ドラサク専用のLIFF URLに、紹介コード(ref)を乗せてリンクを上書き
+                lineButton.href = `https://liff.line.me/2010718817-QHHOPgG2?ref=${refCode}`;
+                
+                // 不具合対策
+                lineButton.removeAttribute('target');
+                lineButton.removeAttribute('rel');
+                
+                // ボタン内の文字を改行付きで書き換え
+                const lineText = lineButton.querySelector('.line-text');
+                if (lineText) {
+                    lineText.innerHTML = 'ドラサク 公式LINEで確認する<br><span style="font-size: 0.75em;">（コード適用済）</span>';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
