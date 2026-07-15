@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>読込中...</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; background-color: #f7f9fa; color: #333; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #00b900; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 10px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .container { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+        <p>ページを移動しています。そのままお待ちください...</p>
+    </div>
+
+    <!-- LINE LIFF SDK の読み込み -->
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script>
+        // 1. LIFFの初期化
+        liff.init({
+            liffId: "【ここに新しいドラサク用LIFF IDを入れる】" 
+        })
+        .then(() => {
+            // 未ログイン時は強制ログイン
+            if (!liff.isLoggedIn()) {
+                liff.login();
+                return;
+            }
+
+            // 2. LINEユーザープロファイルの取得
+            liff.getProfile()
+            .then(profile => {
+                const lineUserId = profile.userId;
+
+                // 3. URLから紹介元コード（ref）を抽出（liff.state対策込み）
+                const urlParams = new URLSearchParams(window.location.search);
+                let refCode = urlParams.get('ref');
+
+                if (!refCode) {
+                    const liffState = urlParams.get('liff.state');
+                    if (liffState) {
+                        const decodedState = decodeURIComponent(liffState);
+                        const cleanState = decodedState.startsWith('?') ? decodedState.slice(1) : decodedState;
+                        const stateParams = new URLSearchParams(cleanState);
+                        refCode = stateParams.get('ref');
+                    }
+                }
+                refCode = refCode || "";
+
+                // 4. ドラサク専用のMake Webhookへ送信
+                const makeWebhookUrl = "https://hook.us2.make.com/h1c42p7fgrh37pv66pgku4mmlab8sj5h";
+
+                fetch(makeWebhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        lineUserId: lineUserId,
+                        refCode: refCode
+                    })
+                })
+                .then(() => {
+                    // 5. 送信完了後、ドラサク公式LINE（5OPhAh8）へリダイレクト！
+                    window.location.href = "https://lin.ee/5OPhAh8";
+                })
+                .catch((error) => {
+                    console.error("Makeへの送信エラー:", error);
+                    window.location.href = "https://lin.ee/5OPhAh8";
+                });
+            });
+        })
+        .catch((err) => {
+            console.error("LIFF初期化エラー:", err);
+            window.location.href = "https://lin.ee/5OPhAh8";
+        });
+    </script>
+</body>
+</html>
