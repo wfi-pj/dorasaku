@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>読込中...</title>
     <style>
-        /* ユーザーを待たせる間の一時的なローディング画面 */
         body { display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; background-color: #f7f9fa; color: #333; }
         .loader { border: 4px solid #f3f3f3; border-top: 4px solid #00b900; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 10px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -26,23 +25,34 @@
             liffId: "2010681134-jdxkPIXw" // 発行されたLIFF ID
         })
         .then(() => {
-            // ログインしていない場合は強制ログイン（0タップ動線の肝）
+            // 未ログイン時は強制ログイン
             if (!liff.isLoggedIn()) {
                 liff.login();
                 return;
             }
 
-            // 2. LINEユーザープロファイル情報の取得
+            // 2. LINEユーザープロファイルの取得
             liff.getProfile()
             .then(profile => {
                 const lineUserId = profile.userId;
 
-                // 3. URLから紹介元コード（ref）を抽出
+                // 3. URLから紹介元コード（ref）を抽出（★liff.stateの罠を完全突破する対策）
                 const urlParams = new URLSearchParams(window.location.search);
-                const refCode = urlParams.get('ref') || ""; // なければ空文字（一般流入対策）
+                let refCode = urlParams.get('ref');
+
+                // パラメータがliff.stateに隠されている場合の救済処理
+                if (!refCode) {
+                    const liffState = urlParams.get('liff.state');
+                    if (liffState) {
+                        const decodedState = decodeURIComponent(liffState);
+                        const cleanState = decodedState.startsWith('?') ? decodedState.slice(1) : decodedState;
+                        const stateParams = new URLSearchParams(cleanState);
+                        refCode = stateParams.get('ref');
+                    }
+                }
+                refCode = refCode || ""; // なければ空文字
 
                 // 4. MakeのWebhookへデータを送信
-                // ※【重要】MakeでWebhookを作成後、下記のURLを差し替えます
                 const makeWebhookUrl = "https://hook.us2.make.com/u7oyinn5xg38cenwfyw5r7he8kfa2y6r";
 
                 fetch(makeWebhookUrl, {
@@ -54,20 +64,19 @@
                     })
                 })
                 .then(() => {
-                    // 5. 送信完了後、採用サイト（表舞台）へ自動リダイレクト
-                    window.location.href = "https://recruit.ke-ban.com/";
+                    // 5. 【大改善】送信完了後、採用サイトではなく「LINE公式アカウントのチャット画面」へ直接リダイレクト！
+                    // これにより、応募者は2回目のボタンタップをすることなく、自動的にチャット画面に引き込まれます。
+                    window.location.href = "https://lin.ee/zukZD7t";
                 })
                 .catch((error) => {
                     console.error("Makeへの送信エラー:", error);
-                    // エラーが起きてもユーザーを止めないよう、採用サイトへ逃がす
-                    window.location.href = "https://recruit.ke-ban.com/";
+                    window.location.href = "https://lin.ee/zukZD7t";
                 });
             });
         })
         .catch((err) => {
             console.error("LIFF初期化エラー:", err);
-            // 万が一の初期化エラー時も採用サイトへリダイレクト
-            window.location.href = "https://recruit.ke-ban.com/";
+            window.location.href = "https://lin.ee/zukZD7t";
         });
     </script>
 </body>
