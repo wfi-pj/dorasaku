@@ -36,34 +36,38 @@
             border: 0;
         }
 
-        /* CTA（LINE誘導ボタン） */
+        /* CTA（LP誘導ボタン） */
         .cta-section {
             text-align: center;
-            background-color: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 8px;
-            padding: 24px 20px;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 28px 20px;
             margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .cta-title {
             font-weight: bold;
-            font-size: 1.1rem;
-            color: #166534;
-            margin-bottom: 12px;
+            font-size: 1.15rem;
+            color: #002244;
+            margin-bottom: 16px;
         }
-        .btn-line {
+        .btn-lp {
             display: inline-block;
-            background-color: #06c755;
+            background-color: #e65100;
             color: #ffffff;
             font-weight: bold;
             text-decoration: none;
-            padding: 14px 32px;
+            padding: 16px 36px;
             border-radius: 50px;
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(6, 199, 85, 0.2);
-            transition: background-color 0.2s ease;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 10px rgba(230, 81, 0, 0.3);
+            transition: all 0.2s ease;
         }
-        .btn-line:hover { background-color: #05b34c; }
+        .btn-lp:hover { 
+            background-color: #ef6c00;
+            transform: translateY(-1px);
+        }
 
         /* コンプライアンス・免責事項（詳細版） */
         .disclaimer-card {
@@ -117,11 +121,11 @@
             </iframe>
         </div>
 
-        <!-- LINE導線 -->
+        <!-- LP誘導ボタン -->
         <div class="cta-section">
-            <div class="cta-title">ご質問・ご相談・資料請求はこちら</div>
-            <a href="【LINE公式アカウントのURL】" target="_blank" rel="noopener noreferrer" class="btn-line">
-                LINE公式アカウントで問い合わせる
+            <div class="cta-title">ドラサクの詳細・お申し込みはこちら</div>
+            <a id="lp-cta-btn" href="https://dorasaku.wfi.co.jp/?ref=VIDEO-INTRO&src=video-intro" class="btn-lp">
+                ドラサク 公式Webサイトへ
             </a>
         </div>
 
@@ -145,6 +149,18 @@
             東京都文京区後楽2丁目20-16 後楽2丁目ビル5階
         </footer>
     </div>
+
+    <!-- URLパラメータ引継ぎ用スクリプト -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const existingRef = urlParams.get('ref');
+            const btn = document.getElementById('lp-cta-btn');
+
+            let targetRef = existingRef ? existingRef : 'VIDEO-INTRO';
+            btn.href = `https://dorasaku.wfi.co.jp/?ref=${encodeURIComponent(targetRef)}&src=video-intro`;
+        });
+    </script>
 
 </body>
 </html>
