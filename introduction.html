@@ -124,7 +124,7 @@
         <!-- LP誘導ボタン -->
         <div class="cta-section">
             <div class="cta-title">ドラサクの詳細・お申し込みはこちら</div>
-            <a id="lp-cta-btn" href="https://dorasaku.wfi.co.jp/?ref=VIDEO-INTRO&src=video-intro" class="btn-lp">
+            <a id="lp-cta-btn" href="https://dorasaku.wfi.co.jp/" class="btn-lp">
                 ドラサク 公式Webサイトへ
             </a>
         </div>
@@ -150,15 +150,15 @@
         </footer>
     </div>
 
-    <!-- URLパラメータ引継ぎ用スクリプト -->
+    <!-- 紹介コード（ref）のみを引き継ぐスクリプト -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const existingRef = urlParams.get('ref');
-            const btn = document.getElementById('lp-cta-btn');
-
-            let targetRef = existingRef ? existingRef : 'VIDEO-INTRO';
-            btn.href = `https://dorasaku.wfi.co.jp/?ref=${encodeURIComponent(targetRef)}&src=video-intro`;
+            const ref = urlParams.get('ref');
+            if (ref) {
+                const btn = document.getElementById('lp-cta-btn');
+                btn.href = `https://dorasaku.wfi.co.jp/?ref=${encodeURIComponent(ref)}`;
+            }
         });
     </script>
 
