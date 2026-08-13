@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ドラサク｜サービス概要紹介</title>
+    <link rel="icon" href="wf_logo.png" type="image/png">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        :root { --primary: #003a70; --bg: #f4f7f9; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Sans", sans-serif; background-color: var(--bg); color: #333; line-height: 1.8; }
+        
+        .header-bar { background: #002244; padding: 12px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header-title { color: #ffffff; font-weight: bold; font-size: 1rem; letter-spacing: 1px; }
+
+        .container { max-width: 800px; margin: 20px auto 60px; padding: 0 15px; }
+        
+        /* YouTubeレスポンシブ埋め込み枠 */
+        .video-container { 
+            position: relative; 
+            width: 100%; 
+            aspect-ratio: 16 / 9; 
+            background-color: #000; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,34,68,0.15); 
+            margin-bottom: 24px; 
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* CTA（LINE誘導ボタン） */
+        .cta-section {
+            text-align: center;
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 24px 20px;
+            margin-bottom: 24px;
+        }
+        .cta-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #166534;
+            margin-bottom: 12px;
+        }
+        .btn-line {
+            display: inline-block;
+            background-color: #06c755;
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(6, 199, 85, 0.2);
+            transition: background-color 0.2s ease;
+        }
+        .btn-line:hover { background-color: #05b34c; }
+
+        /* コンプライアンス・免責事項（詳細版） */
+        .disclaimer-card {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+        .disclaimer-card h2 {
+            font-size: 0.95rem;
+            color: #1f2937;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+        .disclaimer-card ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        .disclaimer-card li { margin-bottom: 4px; }
+        .contact-info {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed #d1d5db;
+            font-weight: bold;
+        }
+
+        footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: #777; border-top: 1px solid #eee; }
+        .footer-logo { width: 180px; height: auto; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <header class="header-bar">
+        <span class="header-title">ドラサク サービス概要紹介</span>
+    </header>
+
+    <div class="container">
+        <!-- YouTube動画プレイヤー -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube-nocookie.com/embed/jQFloeqx9Ys?rel=0&modestbranding=1&playsinline=1" 
+                title="ドラサク サービス概要紹介" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <!-- LINE導線 -->
+        <div class="cta-section">
+            <div class="cta-title">ご質問・ご相談・資料請求はこちら</div>
+            <a href="【LINE公式アカウントのURL】" target="_blank" rel="noopener noreferrer" class="btn-line">
+                LINE公式アカウントで問い合わせる
+            </a>
+        </div>
+
+        <!-- コンプライアンス表記（詳細版） -->
+        <div class="disclaimer-card">
+            <h2>【免責事項・コンプライアンスに関するご案内】</h2>
+            <ul>
+                <li>当社（株式会社ワールドフォースインターナショナル）は保険代理店ではありません。保険商品の募集、勧誘、ならびに契約の媒介行為は一切行なっておりません。</li>
+                <li>本動画内で紹介される保険商品に関するお問合せ、ご相談、お申込みにつきましては、提携保険代理店が対応いたします。</li>
+            </ul>
+            <div class="contact-info">
+                【提携保険代理店】株式会社トップランク<br>
+                【お問合せ窓口】teturo-kato@toprank.jp
+            </div>
+        </div>
+
+        <footer>
+            <a href="https://www.wfi.co.jp" target="_blank" rel="noopener noreferrer">
+                <img src="NEW.wfi.logo.ai.png" alt="株式会社ワールドフォースインターナショナル" class="footer-logo" onerror="this.src='NEW.wfi.logo.png'">
+            </a><br>
+            東京都文京区後楽2丁目20-16 後楽2丁目ビル5階
+        </footer>
+    </div>
+
+</body>
+</html>
